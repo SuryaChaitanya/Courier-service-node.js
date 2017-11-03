@@ -1,0 +1,36 @@
+<% include partials/header %>
+<div class = "jumbotron">
+    
+    <div class = "Container" style = "display:inline-block;margin:0 10%;width:400px;">
+        <a href = "#" class = "btn btn-primary">Sender</a>
+        <h4>First Name: <%= parcel_details.sender.first_name%></h4>
+        <h4>Last Name: <%= parcel_details.sender.last_name%></h4>
+        <h4>Email: <%= parcel_details.sender.email%></h4>
+        <h4>Phone : <%= parcel_details.sender.Phone%></h4>
+        <h4>Flat Number: <%= parcel_details.sender.flat_no %></h4>
+        <h4>Street: <%= parcel_details.sender.street%></h4>
+        <h4>State: <%= parcel_details.sender.state%></h4>
+        <h4>City: <%= parcel_details.sender.city%></h4>
+        <h4>Country: <%= parcel_details.sender.country%></h4>
+        <h4>Zip: <%= parcel_details.sender.zip%></h4>
+    </div>
+    <div class = "Container" style = "display:inline-block;margin:0 10%;width:400px;">
+        <a href = "#" class = "btn btn-primary">Receiver</a>
+        <h4>First Name: <%= parcel_details.receiver.first_name%></h4>
+        <h4>Last Name: <%= parcel_details.receiver.last_name%></h4>
+        <h4>Email: <%= parcel_details.receiver.email%></h4>
+        <h4>Phone : <%= parcel_details.receiver.Phone%></h4>
+        <h4>Flat Number: <%= parcel_details.receiver.flat_no %></h4>
+        <h4>Street: <%= parcel_details.receiver.street%></h4>
+        <h4>State: <%= parcel_details.receiver.state%></h4>
+        <h4>City: <%= parcel_details.receiver.city%></h4>
+        <h4>Country: <%= parcel_details.receiver.country%></h4>
+        <h4>Zip: <%= parcel_details.receiver.zip%></h4>
+    </div>
+</div>
+
+    <a href = "/courier/<%=parcel_details._id%>/edit"><button class="btn btn-lg btn-block btn-warning" style="width:250px;text-align:center;margin:10px auto;">Edit</button></a>
+<form method ="post" action = "/courier/<%=parcel_details._id%>?_method=delete">
+    <button class="btn btn-lg btn-block btn-danger" style="width:250px;text-align:center;margin:0 auto;">Delete</button>
+</form>
+<% include partials/footer %>

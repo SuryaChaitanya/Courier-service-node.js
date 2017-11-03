@@ -1,0 +1,164 @@
+<% include partials/header %>
+<div class = "container" style = "width:400px; margin:0 auto;">
+	<% console.log(order_req) %>
+    <h4>Hello <%=order_req.user_name%></h4>
+    <h4>Your order-type: <%= order_req.type%></h4>
+    <h4>Your order-id: <%= order_req._id%></h4>
+    <h4>Your requested Service:<%= order_req.service%></h4>
+    <% if(order_req.type == "Gifts") { %>
+    <% var price=order_req.number* 100 %>
+    <h4>Price: <%=price %></h4>
+    <% } %>
+    <% if(order_req.type == "Pharmacy") { %>
+    <% var price=order_req.number* 150 %>
+    <h4>Price: <%=price %></h4>
+    <% } %>
+    <% if(order_req.type == "Business") { %>
+    <% var price=order_req.number* 200 %>
+    <h4>Price: <%=price %></h4>
+    <% } %>
+    <% if(order_req.type == "Dresses") { %>
+    <% var price=order_req.number* 50 %>
+    <h4>Price: <%=price %></h4>
+    <% } %>
+    <% if(order_req.type == "Passport") { %>
+    <% var price=order_req.number* 500 %>
+    <h4>Price: <%=price %></h4>
+    <% } %>
+    <% if(order_req.type == "Cakes") { %>
+    <% var price=order_req.number* 250 %>
+    <h4>Price: <%=price %></h4>
+    <% } %>
+</div>
+<form action="/courier"  method="post">
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="jumbotron">
+				<p>Sender Billing Details</p>
+				<div class="input-group">       
+					<label for="firstname">Firstname : </label>
+					<input type="text" class="form-control" id="firstname" name="sender[first_name]" placeholder="First name" >		
+				</div>
+				<div class="input-group">
+				<label for="lastname">Lastname :</label>	
+					<input type="text" class="form-control" id="lastname" name="sender[last_name]" placeholder="Last name" >
+				</div>
+				<div class="input-group">
+					<label for="email">Email :</label>
+				    <input type="email" id="email" class="form-control" name="sender[email]" placeholder="Email" >
+				</div>
+				<div class="input-group">
+					<label for="phone">Phone :</label>
+					<input type="text" id="phone" class="form-control" name="sender[phone]" placeholder="Billing phone number" >
+				</div>
+				<label for="address">Address :</label>	
+				<div class="input-group">
+					<label for="flat">Flat :</label>	
+					<input type="text" class="form-control" id="address flat" name="sender[flat_no]" placeholder="Flat/House No./Floor/Building" >
+				</div>
+				<div class="input-group">
+					<label for="street">Street :</label>
+					<input type="text" id="address street" class="form-control" name="sender[street]" placeholder="Street/Colony/Locality" >
+				</div>
+				<div class="input-group">
+					<label for="city">City :</label>
+					<input type="text" class="form-control" id="address city" name="sender[city]" placeholder="City" >
+				</div>
+				<div class="input-group">
+					<label for="state">State :</label>
+					<input type="text" class="form-control" id="address state" name="sender[state]" placeholder="State" >
+				</div>
+				<div class="input-group">
+					<label for="country">Country :</label>
+					<input type="text" class="form-control" id="address country" name="sender[country]" placeholder="Country" >
+				</div>
+				<div class="input-group">
+					<label for="zip">Zip :</label>
+					<input type="text" class="form-control" id="address zip" name="sender[zip]" placeholder="Zip" >
+				</div>
+		    </div>
+		</div>
+		<div class="col-lg-4">
+			<div class="jumbotron"> 
+				<p>Receiver Billing Details</p>
+				<div class="input-group">
+					<label for="firstname">Firstname : </label>
+					<input type="text" class="form-control" id="firstname" name="receiver[first_name]" placeholder="First name" >		
+				</div>
+				<div class="input-group">
+				<label for="lastname">Lastname :</label>	
+					<input type="text" class="form-control" id="lastname" name="receiver[last_name]" placeholder="Last name" >
+				</div>
+				<div class="input-group">
+					<label for="email">Email :</label>
+				    <input type="email" id="email" class="form-control" name="receiver[email]" placeholder="Email" >
+				</div>
+				<div class="input-group">
+					<label for="phone">Phone :</label>
+					<input type="text" id="phone" class="form-control" name="receiver[phone]" placeholder="Billing phone number" >
+				</div>
+				<label for="address">Address :</label>	
+				<div class="input-group">
+					<label for="flat">Flat :</label>	
+					<input type="text" class="form-control" id="address flat" name="receiver[flat_no]" placeholder="Flat/House No./Floor/Building" >
+				</div>
+				<div class="input-group">
+					<label for="street">Street :</label>
+					<input type="text" id="address street" class="form-control" name="receiver[street]" placeholder="Street/Colony/Locality" >
+				</div>
+				<div class="input-group">
+					<label for="city">City :</label>
+					<input type="text" class="form-control" id="address city" name="receiver[city]" placeholder="City" >
+				</div>
+				<div class="input-group">
+					<label for="state">State :</label>
+					<input type="text" class="form-control" id="address state" name="receiver[state]" placeholder="State" >
+				</div>
+				<div class="input-group">
+					<label for="country">Country :</label>
+					<input type="text" class="form-control" id="address country" name="receiver[country]" placeholder="Country" >
+				</div>
+				<div class="input-group">
+					<label for="zip">Zip :</label>
+					<input type="text" class="form-control" id="address zip" name="receiver[zip]" placeholder="Zip" >
+				</div>
+		    </div>
+		</div>
+	</div>
+</div>
+ 
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 jumbotron" >
+			    <input type = "text" name = "order_id" value = "<%= order_req._id%>" inactive></input>
+				<div style="padding: 20px">
+					<div class="form-check">
+					  <label class="form-check-label">
+					    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+					   	Credit card payment
+					   </label>
+					</div>
+					<div class="form-check">
+					  <label class="form-check-label">
+					    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+					  	Cash on Delivery
+					  </label>
+					</div>
+					
+				</div>
+				
+				<div style="border-top: 1px solid black; padding: 10px;">
+					<div class="form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" value="1">
+						    I accept the terms and conditions
+						</label>
+					</div>
+					<button type="submit" class="btn btn-primary">Place Order</button>
+				</div>
+		</div>
+	</div>
+</div>
+</form>
+<% include partials/footer %>
